@@ -2,6 +2,8 @@ import Container from "react-bootstrap/Container";
 import Stack from "react-bootstrap/Stack";
 
 import { Banner } from "./components/Banner";
+import { SearchForm } from "./components/SearchForm";
+
 import CloudBannerImg from "./assets/images/clouds.jpg";
 
 export const App = () => {
@@ -15,6 +17,7 @@ export const App = () => {
       }}
     >
       <Banner />
+      <SearchForm />
       <Stack>
         <div className="p-2">First item</div>
         <div className="p-2">Second item</div>
