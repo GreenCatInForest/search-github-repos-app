@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import Stack from "react-bootstrap/Stack";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 
-export const SearchForm = () => {
+export const SearchForm = ({ setUrl }) => {
   const [searchMode, setSearchMode] = useState("organisation");
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -24,7 +24,7 @@ export const SearchForm = () => {
       searchMode === "organisation"
         ? `https://api.github.com/orgs/${searchTerm}/repos`
         : `https://api.github.com/users/${searchTerm}/repos`;
-    console.log(url);
+    setUrl(url);
   };
 
   return (

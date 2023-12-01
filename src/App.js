@@ -9,7 +9,8 @@ import CloudBannerImg from "./assets/images/clouds.jpg";
 import { useState } from "react";
 
 export const App = () => {
-  const [fetchGitHubUrl, setFetchGitHubUrl] = useState("");
+  const [url, setUrl] = useState("");
+  console.log(url);
 
   return (
     <Container
@@ -22,7 +23,7 @@ export const App = () => {
     >
       <Stack>
         <Banner />
-        <SearchForm />
+        <SearchForm setUrl={setUrl} />
         <Repos />
       </Stack>
     </Container>
