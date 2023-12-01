@@ -16,8 +16,17 @@ export const SearchForm = () => {
     setSearchTerm(currentTarget.value);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const url =
+      searchMode === "organisation"
+        ? `https://api.github.com/orgs/${searchTerm}/repos`
+        : `https://api.github.com/users/${searchTerm}/repos`;
+    console.log(url);
+  };
+
   return (
-    <Form className="p-3">
+    <Form className="p-3" onSubmit={handleSubmit}>
       <Stack gap={3}>
         <ButtonGroup aria-label="Basic example">
           <Button

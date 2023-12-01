@@ -9,7 +9,7 @@ import CloudBannerImg from "./assets/images/clouds.jpg";
 import { useState } from "react";
 
 export const App = () => {
-  const [] = useState();
+  const [fetchGitHubUrl, setFetchGitHubUrl] = useState("");
 
   return (
     <Container
