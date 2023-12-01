@@ -9,8 +9,10 @@ export const SearchForm = () => {
   const [searchMode, setSearchMode] = useState("organisation");
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSearchMode = ({ currentTarget }) =>
+  const handleSearchMode = ({ currentTarget }) => {
+    setSearchTerm("");
     setSearchMode(currentTarget.name);
+  };
 
   const handleSearchTerm = ({ currentTarget }) => {
     setSearchTerm(currentTarget.value);
@@ -28,7 +30,7 @@ export const SearchForm = () => {
   return (
     <Form className="p-3" onSubmit={handleSubmit}>
       <Stack gap={3}>
-        <ButtonGroup aria-label="Basic example">
+        <ButtonGroup>
           <Button
             variant="secondary active"
             name="organisation"
