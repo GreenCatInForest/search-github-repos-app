@@ -3,6 +3,7 @@ import Stack from "react-bootstrap/Stack";
 
 import { Banner } from "./components/Banner";
 import { SearchForm } from "./components/SearchForm";
+import { Repos } from "./components/Repos";
 
 import CloudBannerImg from "./assets/images/clouds.jpg";
 
@@ -16,12 +17,10 @@ export const App = () => {
         opacity: "80%",
       }}
     >
-      <Banner />
-      <SearchForm />
       <Stack>
-        <div className="p-2">First item</div>
-        <div className="p-2">Second item</div>
-        <div className="p-2">Third item</div>
+        <Banner />
+        <SearchForm />
+        <Repos />
       </Stack>
     </Container>
   );
