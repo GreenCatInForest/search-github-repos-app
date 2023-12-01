@@ -1,9 +1,14 @@
+import { useState } from "react";
+
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Stack from "react-bootstrap/Stack";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 
 export const SearchForm = () => {
+  const [searchMode, setSearchMode] = useState("organisation");
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
     <Form className="p-3">
       <Stack gap={3}>
@@ -13,12 +18,9 @@ export const SearchForm = () => {
         </ButtonGroup>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Control
-            type="text"
-            placeholder="Enter an organisation or a username"
-          />
+          <Form.Control type="text" placeholder={`Enter the {searchMode}`} />
           <Form.Text className="text-danger">
-            Please enter a valid organisation or username
+            Please enter a valid organisation
           </Form.Text>
         </Form.Group>
         <Button variant="primary" type="submit">

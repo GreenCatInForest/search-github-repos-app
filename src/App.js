@@ -6,8 +6,11 @@ import { SearchForm } from "./components/SearchForm";
 import { Repos } from "./components/Repos";
 
 import CloudBannerImg from "./assets/images/clouds.jpg";
+import { useState } from "react";
 
 export const App = () => {
+  const [] = useState();
+
   return (
     <Container
       className="bg-dark vh-100 text-light"
