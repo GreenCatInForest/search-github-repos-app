@@ -12,6 +12,10 @@ export const SearchForm = () => {
   const handleSearchMode = ({ currentTarget }) =>
     setSearchMode(currentTarget.name);
 
+  const handleSearchTerm = ({ currentTarget }) => {
+    setSearchTerm(currentTarget.value);
+  };
+
   return (
     <Form className="p-3">
       <Stack gap={3}>
@@ -33,7 +37,12 @@ export const SearchForm = () => {
         </ButtonGroup>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Control type="text" placeholder={`Enter the ${searchMode}`} />
+          <Form.Control
+            type="text"
+            placeholder={`Enter the ${searchMode}`}
+            value={searchTerm}
+            onChange={handleSearchTerm}
+          />
           <Form.Text className="text-danger">
             Please enter a valid organisation
           </Form.Text>
