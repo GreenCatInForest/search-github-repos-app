@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import Container from "react-bootstrap/Container";
 import Stack from "react-bootstrap/Stack";
 
@@ -6,11 +8,15 @@ import { SearchForm } from "./components/SearchForm";
 import { Repos } from "./components/Repos";
 
 import CloudBannerImg from "./assets/images/clouds.jpg";
-import { useState } from "react";
 
 export const App = () => {
   const [url, setUrl] = useState("");
-  console.log(url);
+
+  useEffect(() => {
+    if (url) {
+      console.log(url);
+    }
+  }, [url]);
 
   return (
     <Container
