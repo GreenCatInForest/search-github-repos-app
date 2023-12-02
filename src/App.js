@@ -19,6 +19,7 @@ export const App = () => {
       const fetchData = async () => {
         const { data } = await axios.get(url);
         setRepos(data);
+        // console.log(url);
       };
       fetchData();
     }
