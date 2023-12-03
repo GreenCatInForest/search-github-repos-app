@@ -1,4 +1,5 @@
 import { useState } from "react";
+import classNames from "classnames";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -32,14 +33,18 @@ export const SearchForm = ({ setUrl }) => {
       <Stack gap={3}>
         <ButtonGroup>
           <Button
-            variant="secondary active"
+            variant={classNames("secondary", {
+              active: searchMode === "organisation",
+            })}
             name="organisation"
             onClick={handleSearchMode}
           >
             Search by Organisation
           </Button>
           <Button
-            variant="secondary"
+            variant={classNames("secondary", {
+              active: searchMode === "username",
+            })}
             name="username"
             onClick={handleSearchMode}
           >
