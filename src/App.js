@@ -13,18 +13,24 @@ import CloudBannerImg from "./assets/images/clouds.jpg";
 export const App = () => {
   const [url, setUrl] = useState("");
   const [repos, setRepos] = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     if (url) {
       const fetchData = async () => {
-        const { data } = await axios.get(url);
-        setRepos(data);
-        // console.log(url);
+        try {
+          const { data } = await axios.get(url + "/foo");
+          setRepos(data);
+          // console.log(url);
+        } catch (error) {
+          console.log(`error ${error.message}`);
+          setError("Ooops something went wrong");
+        }
       };
       fetchData();
     }
   }, [url]);
-
+  console.log(error);
   return (
     <Container
       className="bg-dark vh-100 text-light"
@@ -37,6 +43,7 @@ export const App = () => {
       <Stack>
         <Banner />
         <SearchForm setUrl={setUrl} />
+        <h3>{error}</h3>
         {repos && <Repos repos={repos} />}
       </Stack>
     </Container>
