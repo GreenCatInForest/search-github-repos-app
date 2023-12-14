@@ -9,9 +9,11 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 export const SearchForm = ({ setUrl }) => {
   const [searchMode, setSearchMode] = useState("organisation");
   const [searchTerm, setSearchTerm] = useState("");
+  const [error, setError] = useState("");
 
   const handleSearchMode = ({ currentTarget }) => {
     setSearchTerm("");
+    setError("");
     setSearchMode(currentTarget.name);
   };
 
@@ -21,11 +23,17 @@ export const SearchForm = ({ setUrl }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const url =
-      searchMode === "organisation"
-        ? `https://api.github.com/orgs/${searchTerm}/repos`
-        : `https://api.github.com/users/${searchTerm}/repos`;
-    setUrl(url);
+
+    if (!searchTerm) {
+      setError(`Please enter a valid ${searchMode}`);
+    } else {
+      setError("");
+      const url =
+        searchMode === "organisation"
+          ? `https://api.github.com/orgs/${searchTerm}/repos`
+          : `https://api.github.com/users/${searchTerm}/repos`;
+      setUrl(url);
+    }
   };
 
   return (
@@ -59,9 +67,7 @@ export const SearchForm = ({ setUrl }) => {
             value={searchTerm}
             onChange={handleSearchTerm}
           />
-          <Form.Text className="text-danger">
-            Please enter a valid organisation
-          </Form.Text>
+          {error && <Form.Text className="text-danger">{error}</Form.Text>}
         </Form.Group>
         <Button variant="primary" type="submit">
           Submit
