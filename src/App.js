@@ -7,6 +7,7 @@ import axios from "axios";
 import { Banner } from "./components/Banner";
 import { SearchForm } from "./components/SearchForm";
 import { Repos } from "./components/Repos";
+import { ErrorBanner } from "./components/ErrorBanner";
 
 import CloudBannerImg from "./assets/images/clouds.jpg";
 
@@ -23,14 +24,13 @@ export const App = () => {
           setRepos(data);
           // console.log(url);
         } catch (error) {
-          console.log(`error ${error.message}`);
+          console.log(`here is an error: ${error.message}`);
           setError("Ooops something went wrong");
         }
       };
       fetchData();
     }
   }, [url]);
-  console.log(error);
   return (
     <Container
       className="bg-dark vh-100 text-light"
@@ -43,8 +43,8 @@ export const App = () => {
       <Stack>
         <Banner />
         <SearchForm setUrl={setUrl} />
-        <h3>{error}</h3>
         {repos && <Repos repos={repos} />}
+        {error && <ErrorBanner message={error} />}
       </Stack>
     </Container>
   );
