@@ -22,6 +22,7 @@ export const App = () => {
     if (url) {
       const fetchData = async () => {
         try {
+          setRepos();
           setIsLoading(true);
           const { data } = await axios.get(url);
           setIsLoading(false);
@@ -29,6 +30,7 @@ export const App = () => {
           // console.log(url);
         } catch (error) {
           console.log(`here is an error: ${error.message}`);
+          setIsLoading(false);
           setError("Ooops something went wrong");
         }
       };
@@ -37,7 +39,7 @@ export const App = () => {
   }, [url]);
   return (
     <Container
-      className="bg-dark vh-100 text-light"
+      className="bg-dark text-light"
       style={{
         backgroundImage: `url(${CloudBannerImg}`,
         backgroundSize: "cover",
@@ -49,7 +51,7 @@ export const App = () => {
         <SearchForm setUrl={setUrl} />
         {isLoading && <LoadingSpinner />}
         {error && <ErrorBanner message={error} />}
-        {repos && <Repos repos={repos} />}
+        {repos && !error && <Repos repos={repos} />}
       </Stack>
     </Container>
   );

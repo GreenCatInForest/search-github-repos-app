@@ -1,9 +1,13 @@
+import Stack from "react-bootstrap/Stack";
+
+import { RepoCard } from "./RepoCard";
+
 export const Repos = ({ repos }) => {
   return (
-    <div>
-      {repos.forEach((repo) => {
-        console.log(repo);
+    <Stack>
+      {repos.map((repo) => {
+        return <RepoCard repos={repos} />;
       })}
-    </div>
+    </Stack>
   );
 };
