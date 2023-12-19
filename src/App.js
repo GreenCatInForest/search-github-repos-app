@@ -8,6 +8,7 @@ import { Banner } from "./components/Banner";
 import { SearchForm } from "./components/SearchForm";
 import { Repos } from "./components/Repos";
 import { ErrorBanner } from "./components/ErrorBanner";
+import { LoadingSpinner } from "./components/LoadingSpinner";
 
 import CloudBannerImg from "./assets/images/clouds.jpg";
 
@@ -15,12 +16,15 @@ export const App = () => {
   const [url, setUrl] = useState("");
   const [repos, setRepos] = useState("");
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (url) {
       const fetchData = async () => {
         try {
-          const { data } = await axios.get(url + "/foo");
+          setIsLoading(true);
+          const { data } = await axios.get(url);
+          setIsLoading(false);
           setRepos(data);
           // console.log(url);
         } catch (error) {
@@ -43,8 +47,9 @@ export const App = () => {
       <Stack>
         <Banner />
         <SearchForm setUrl={setUrl} />
-        {repos && <Repos repos={repos} />}
+        {isLoading && <LoadingSpinner />}
         {error && <ErrorBanner message={error} />}
+        {repos && <Repos repos={repos} />}
       </Stack>
     </Container>
   );
