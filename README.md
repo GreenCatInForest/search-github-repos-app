@@ -2,6 +2,7 @@
 This interactive app allows the user to enter a name of organisation or a username and to receive a list of related Github repositories. 
 App created to show an example of using Fetch API, a useState and useEffect hooks in React.
 
+## Deployed App
 Please click here to view [deployed App URL](https://search-github-repos-app.vercel.app/).
 
 ## User Story
