@@ -6,7 +6,7 @@ export const Repos = ({ repos }) => {
   return (
     <Stack>
       {repos.map((repo) => {
-        return <RepoCard repos={repos} />;
+        return <RepoCard key={repo.id} repo={repo} />;
       })}
     </Stack>
   );
