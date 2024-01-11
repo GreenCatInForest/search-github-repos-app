@@ -8,8 +8,9 @@ export const RepoCard = ({ repo }) => {
     window.open(`${repo.html_url}`, "_blank");
   };
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+    <Card
+      style={{ width: "18rem", textAlign: "center", verticalAlign: "bottom" }}
+    >
       <Card.Body>
         <Card.Title>{repo.name}</Card.Title>
         <Card.Text>{repo.description}</Card.Text>
