@@ -1,5 +1,6 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import RepoCardImg from "../assets/images/leaf-256.png";
 
 export const RepoCard = ({ repo }) => {
   console.log(repo);
@@ -11,6 +12,7 @@ export const RepoCard = ({ repo }) => {
     <Card
       style={{ width: "18rem", textAlign: "center", verticalAlign: "bottom" }}
     >
+      <Card.Img variant="top" src={RepoCardImg} className="w-50 m-auto p-2" />
       <Card.Body>
         <Card.Title>{repo.name}</Card.Title>
         <Card.Text>{repo.description}</Card.Text>
