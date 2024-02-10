@@ -41,7 +41,7 @@ export const SearchForm = ({ setUrl }) => {
       <Stack gap={3}>
         <ButtonGroup>
           <Button
-            variant={classNames("secondary", {
+            variant={classNames("info", {
               active: searchMode === "organisation",
             })}
             name="organisation"
@@ -50,7 +50,7 @@ export const SearchForm = ({ setUrl }) => {
             Search by Organisation
           </Button>
           <Button
-            variant={classNames("secondary", {
+            variant={classNames("success", {
               active: searchMode === "username",
             })}
             name="username"
