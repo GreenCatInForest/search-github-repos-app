@@ -9,7 +9,7 @@ Please click here to view [App on Versel URL](https://search-github-repos-app.ve
 
 ## Screenshots
 
-![View of App](./assets/images/githubSerchProjectCardBannerImg.png)
+![View of App](src/assets/images/githubSerchProjectCardBannerImg.png)
 
 ## User Story
 
