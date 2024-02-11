@@ -37,9 +37,9 @@ export const SearchForm = ({ setUrl }) => {
   };
 
   return (
-    <Form className="p-3" onSubmit={handleSubmit}>
+    <Form className="p-3 mb-5" onSubmit={handleSubmit}>
       <Stack gap={3}>
-        <ButtonGroup>
+        <ButtonGroup className="p-3 flex flex-row flex-wrap gap-3 justify-content-center ">
           <Button
             variant={classNames("info", {
               active: searchMode === "organisation",

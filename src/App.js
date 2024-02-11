@@ -42,8 +42,9 @@ export const App = () => {
       className="bg-dark text-light"
       style={{
         backgroundImage: `url(${CloudBannerImg}`,
-        backgroundSize: "cover",
-        height: "1000px",
+        backgroundSize: "180% 35em",
+        backgroundRepeat: "repeat-y",
+        minHeight: "100%",
       }}
     >
       <Stack>

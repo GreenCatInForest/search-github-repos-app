@@ -10,7 +10,11 @@ export const RepoCard = ({ repo }) => {
   };
   return (
     <Card
-      style={{ width: "18rem", textAlign: "center", verticalAlign: "bottom" }}
+      style={{
+        width: "18rem",
+        textAlign: "center",
+        verticalAlign: "bottom",
+      }}
     >
       <Card.Img variant="top" src={RepoCardImg} className="w-50 m-auto p-2" />
       <Card.Body>
