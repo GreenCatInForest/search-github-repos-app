@@ -41,7 +41,7 @@ export const App = () => {
     <Container
       className="bg-dark text-light"
       style={{
-        backgroundImage: `url(${CloudBannerImg}`,
+        backgroundImage: `url(${CloudBannerImg})`,
         backgroundSize: "180% 35em",
         backgroundRepeat: "repeat-y",
         minHeight: "100%",
